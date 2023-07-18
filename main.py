@@ -30,14 +30,18 @@ def main():
 def encode(raw_password):
     encoded = ''
     for i in raw_password:
-        encoded += str(int(i) + 3)
+        encoded += str((int(i) + 3) % 10)
     return encoded
 
 
 # Function to decode password, subtracts 3 from each digit in password and augments final string with that digit
 def decode(encoded_password):
-    pass
-    # FIXME: implement decode() function
+    if not (encoded_password): return ""
+
+    password : str = ""
+    for num in encoded_password:
+        password += str((int(num) - 3) % 10)
+    return password
 
 
 # Function to print user selection menu
